@@ -1,1 +1,26 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --text: 217 95% 92%;
+    --background: 217 94% 6%;
+    --primary: 220 95% 75%;
+    --secondary: 269 95% 34%;
+    --accent: 281 95% 52%;
+  }
+
+  html {
+    @apply font-main text-text bg-neutral-400;
+  }
+}
+
+@theme {
+  --font-main: "Inter", monospace;
+  --font-highlight: "Poppins", sans-serif;
+
+  --color-text: hsl(var(--text));
+  --color-primary: hsl(var(--primary));
+  --color-secondary: hsl(var(--secondary));
+  --color-background: hsl(var(--background));
+  --color-accent: hsl(var(--accent));
+}

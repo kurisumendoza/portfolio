@@ -12,6 +12,11 @@
   html {
     @apply font-main text-text bg-neutral-400;
   }
+
+  button,
+  li {
+    @apply cursor-pointer;
+  }
 }
 
 @theme {

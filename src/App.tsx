@@ -4,6 +4,7 @@ import Hero from "./components/page/Hero";
 import Overview from "./components/page/Overview";
 import Button from "./components/shared/Button";
 import EnterIcon from "./components/icons/EnterIcon";
+import NavBar from "./components/page/NavBar";
 
 function App() {
   const [isHomepage, setIsHomepage] = useState(true);
@@ -23,7 +24,7 @@ function App() {
       )}
 
       <Overview>
-        <p></p>
+        <NavBar setIsHomepage={setIsHomepage} />
       </Overview>
     </div>
   );

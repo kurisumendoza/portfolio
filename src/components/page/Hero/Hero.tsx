@@ -1,8 +1,8 @@
 import { FIRST_NAME, LAST_NAME } from "../../../constants";
-import EnterIcon from "../../icons/EnterIcon";
-import Button from "../../shared/Button";
 
-const Hero = () => {
+type HeroProps = { children: React.ReactNode };
+
+const Hero = ({ children }: HeroProps) => {
   return (
     <div className="bg-background flex h-full w-full flex-col justify-center gap-10 px-50">
       <div className="flex flex-col gap-2.5">
@@ -15,17 +15,7 @@ const Hero = () => {
         </p>
         <p className="text-5xl">an aspiring web developer.</p>
       </div>
-      <div>
-        <Button
-          className="bg-secondary flex items-center gap-3 rounded-lg px-20 py-5 text-2xl font-medium shadow-md"
-          onClick={() => {}}
-        >
-          <div>Explore my portfolio</div>
-          <div className="h-8">
-            <EnterIcon className="fill-text" />
-          </div>
-        </Button>
-      </div>
+      <div>{children}</div>
     </div>
   );
 };

@@ -1,10 +1,15 @@
-import { FIRST_NAME, LAST_NAME } from "../../../constants";
+import { FIRST_NAME, LAST_NAME } from '../../../constants';
+import EnterIcon from '../../icons/EnterIcon';
+import Button from '../../shared/Button';
 
-type HeroProps = { children: React.ReactNode };
+type HeroProps = {
+  isHomepage: boolean;
+  setIsHomepage: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-const Hero = ({ children }: HeroProps) => {
+const Hero = ({ isHomepage, setIsHomepage }: HeroProps) => {
   return (
-    <div className="bg-background flex h-full w-full flex-col justify-center gap-10 px-50">
+    <div className="bg-background flex size-full flex-col justify-center gap-10 px-50">
       <div className="flex flex-col gap-2.5">
         <p className="text-6xl">Hello, I am</p>
         <p className="font-highlight text-primary text-9xl font-bold">
@@ -15,7 +20,17 @@ const Hero = ({ children }: HeroProps) => {
         </p>
         <p className="text-5xl">an aspiring web developer.</p>
       </div>
-      <div>{children}</div>
+      <div>
+        <Button
+          className="bg-secondary flex items-center gap-5 rounded-lg px-20 py-5 text-2xl font-medium shadow-md"
+          onClick={() => setIsHomepage(!isHomepage)}
+        >
+          <div className="text-nowrap">
+            {isHomepage ? 'Explore my portfolio' : 'Back to homepage'}
+          </div>
+          <EnterIcon className="fill-text h-7" />
+        </Button>
+      </div>
     </div>
   );
 };

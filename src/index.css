@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @layer base {
   :root {
@@ -20,8 +20,8 @@
 }
 
 @theme {
-  --font-main: "Inter", monospace;
-  --font-highlight: "Poppins", sans-serif;
+  --font-main: 'Inter', monospace;
+  --font-highlight: 'Poppins', sans-serif;
 
   --color-text: hsl(var(--text));
   --color-primary: hsl(var(--primary));

@@ -1,17 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Hero from './components/page/Hero';
 import Overview from './components/page/Overview';
 import NavBar from './components/page/NavBar';
 import ActivePage from './components/page/ActivePage';
+import { HERO_ANIMATION } from './constants';
 
 function App() {
   const [isHomepage, setIsHomepage] = useState(true);
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  useEffect(() => {
+    if (!isHomepage && !hasInteracted) setHasInteracted(true);
+  }, [isHomepage, hasInteracted]);
 
   return (
     <div className="h-screen w-screen">
       {isHomepage && (
-        <Hero isHomepage={isHomepage} setIsHomepage={setIsHomepage} />
+        <Hero
+          animation={hasInteracted ? HERO_ANIMATION.EXPAND : ''}
+          isHomepage={isHomepage}
+          setIsHomepage={setIsHomepage}
+        />
       )}
 
       {!isHomepage && (
@@ -23,7 +33,11 @@ function App() {
             <div className="h-full bg-blue-200"></div>
             <div className="col-start-2 row-span-3 row-start-1 w-full">
               <ActivePage>
-                <Hero isHomepage={isHomepage} setIsHomepage={setIsHomepage} />
+                <Hero
+                  animation={HERO_ANIMATION.SHRINK}
+                  isHomepage={isHomepage}
+                  setIsHomepage={setIsHomepage}
+                />
               </ActivePage>
             </div>
           </main>

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import { HERO_ANIMATION } from './constants';
 import Hero from './components/page/Hero';
 import Overview from './components/page/Overview';
 import NavBar from './components/page/NavBar';
 import ActivePage from './components/page/ActivePage';
-import { HERO_ANIMATION } from './constants';
+import SkillsDock from './components/dock/SkillsDock';
+import './App.css';
 
 function App() {
   const [isHomepage, setIsHomepage] = useState(true);
@@ -41,7 +42,7 @@ function App() {
               </ActivePage>
             </div>
           </main>
-          <footer className="h-30 bg-amber-300"></footer>
+          <SkillsDock />
         </Overview>
       )}
     </div>

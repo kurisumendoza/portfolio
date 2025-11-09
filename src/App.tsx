@@ -6,6 +6,7 @@ import NavBar from './components/layout/NavBar';
 import ActivePage from './components/pages/ActivePage';
 import SkillsDock from './components/dock/SkillsDock';
 import './App.css';
+import SidePages from './components/pages/SidePages';
 
 function App() {
   const [isHomepage, setIsHomepage] = useState(true);
@@ -28,10 +29,8 @@ function App() {
       {!isHomepage && (
         <Overview>
           <NavBar setIsHomepage={setIsHomepage} />
-          <main className="grid h-4/5 grid-cols-[25%_1fr] grid-rows-3 gap-10 px-5">
-            <div className="h-full bg-blue-200"></div>
-            <div className="h-full bg-blue-200"></div>
-            <div className="h-full bg-blue-200"></div>
+          <main className="flex h-4/5 gap-10 px-10">
+            <SidePages />
             <div className="col-start-2 row-span-3 row-start-1 w-full">
               <ActivePage>
                 <Hero

@@ -14,22 +14,25 @@ import './App.css';
 import SidePages from './components/pages/SidePages';
 
 function App() {
+  const defaultSide = [PAGE.ABOUT, PAGE.PROJECTS, PAGE.CONTACT];
+
   const [isHomepage, setIsHomepage] = useState(true);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [fromSidePage, setFromSidePage] = useState(false);
   const [activePage, setActivePage] = useState<PageType>(PAGE.HOME);
-  const [inactivePages, setInactivePages] = useState<PageType[]>([
-    PAGE.ABOUT,
-    PAGE.PROJECTS,
-    PAGE.CONTACT,
-  ]);
+  const [inactivePages, setInactivePages] = useState<PageType[]>(defaultSide);
 
   useEffect(() => {
     if (!isHomepage && !hasInteracted) setHasInteracted(true);
   }, [isHomepage, hasInteracted]);
 
   useEffect(() => {
-    if (isHomepage) setFromSidePage(false);
+    if (isHomepage) {
+      setFromSidePage(false);
+      setActivePage(PAGE.HOME);
+      setInactivePages(defaultSide);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHomepage]);
 
   return (

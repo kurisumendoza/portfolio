@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { HERO_ANIMATION } from './constants';
-import Hero from './components/page/Hero';
-import Overview from './components/page/Overview';
-import NavBar from './components/page/NavBar';
-import ActivePage from './components/page/ActivePage';
+import Hero from './components/pages/Hero';
+import Overview from './components/layout/Overview';
+import NavBar from './components/layout/NavBar';
+import ActivePage from './components/pages/ActivePage';
 import SkillsDock from './components/dock/SkillsDock';
 import './App.css';
 

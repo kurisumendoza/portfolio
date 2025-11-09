@@ -47,3 +47,12 @@
     transform: translateX(0) scale(1);
   }
 }
+
+@keyframes scaleUpFromSide {
+  0% {
+    transform: translateX(-40%) scale(0.25);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}

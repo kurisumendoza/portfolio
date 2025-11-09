@@ -1,4 +1,4 @@
-import { type PageType } from '../../../constants';
+import type { PageType } from '../../../constants';
 import Button from '../../shared/Button';
 
 type SidePagesProps = {
@@ -6,6 +6,7 @@ type SidePagesProps = {
   inactivePages: PageType[];
   setActivePage: React.Dispatch<React.SetStateAction<PageType>>;
   setInactivePages: React.Dispatch<React.SetStateAction<PageType[]>>;
+  setFromSidePage: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const SidePages = ({
@@ -13,10 +14,13 @@ const SidePages = ({
   inactivePages,
   setActivePage,
   setInactivePages,
+  setFromSidePage,
 }: SidePagesProps) => {
   const handleClick = (page: PageType) => {
     const current = activePage;
-    // active page goes to clicked inactive page's position
+
+    setFromSidePage(true); // flag for changing Hero origin animation
+    // active page replaces clicked inactive page at the same position
     setInactivePages((prev) => prev.map((p) => (p === page ? current : p)));
     setActivePage(page);
   };

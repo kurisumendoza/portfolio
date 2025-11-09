@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
-import { HERO_ANIMATION, PAGE, type PageType } from './constants';
+import {
+  HERO_ANIMATION,
+  SIDE_ANIMATION,
+  PAGE,
+  type PageType,
+} from './constants';
 import Hero from './components/pages/Hero';
 import Overview from './components/layout/Overview';
 import NavBar from './components/layout/NavBar';
@@ -11,6 +16,7 @@ import SidePages from './components/pages/SidePages';
 function App() {
   const [isHomepage, setIsHomepage] = useState(true);
   const [hasInteracted, setHasInteracted] = useState(false);
+  const [fromSidePage, setFromSidePage] = useState(false);
   const [activePage, setActivePage] = useState<PageType>(PAGE.HOME);
   const [inactivePages, setInactivePages] = useState<PageType[]>([
     PAGE.ABOUT,
@@ -21,6 +27,10 @@ function App() {
   useEffect(() => {
     if (!isHomepage && !hasInteracted) setHasInteracted(true);
   }, [isHomepage, hasInteracted]);
+
+  useEffect(() => {
+    if (isHomepage) setFromSidePage(false);
+  }, [isHomepage]);
 
   return (
     <div className="h-screen w-screen">
@@ -41,12 +51,17 @@ function App() {
               inactivePages={inactivePages}
               setActivePage={setActivePage}
               setInactivePages={setInactivePages}
+              setFromSidePage={setFromSidePage}
             />
             <div className="col-start-2 row-span-3 row-start-1 w-full">
               <ActivePage>
                 {activePage === PAGE.HOME && (
                   <Hero
-                    animation={HERO_ANIMATION.SHRINK}
+                    animation={
+                      fromSidePage
+                        ? SIDE_ANIMATION.EXPAND
+                        : HERO_ANIMATION.SHRINK
+                    }
                     isHomepage={isHomepage}
                     setIsHomepage={setIsHomepage}
                   />

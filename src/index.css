@@ -3,6 +3,7 @@
 @layer base {
   :root {
     --text: 217 95% 92%;
+    --text-dark: 10 95% 12%;
     --background: 217 94% 6%;
     --primary: 220 95% 75%;
     --secondary: 269 95% 34%;
@@ -17,6 +18,10 @@
   li {
     @apply cursor-pointer;
   }
+
+  h1 {
+    @apply font-highlight text-3xl;
+  }
 }
 
 @theme {
@@ -24,6 +29,7 @@
   --font-highlight: 'Poppins', sans-serif;
 
   --color-text: hsl(var(--text));
+  --color-text-dark: hsl(var(--text-dark));
   --color-primary: hsl(var(--primary));
   --color-secondary: hsl(var(--secondary));
   --color-background: hsl(var(--background));

@@ -12,6 +12,7 @@ import ActivePage from './components/pages/ActivePage';
 import SkillsDock from './components/dock/SkillsDock';
 import './App.css';
 import SidePages from './components/pages/SidePages';
+import About from './components/pages/About';
 
 function App() {
   const defaultSide = [PAGE.ABOUT, PAGE.PROJECTS, PAGE.CONTACT];
@@ -68,6 +69,10 @@ function App() {
                     isHomepage={isHomepage}
                     setIsHomepage={setIsHomepage}
                   />
+                )}
+
+                {activePage === PAGE.ABOUT && (
+                  <About animation={SIDE_ANIMATION.EXPAND} />
                 )}
               </ActivePage>
             </div>

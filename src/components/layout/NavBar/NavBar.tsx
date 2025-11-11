@@ -1,4 +1,5 @@
 import Button from '../../shared/Button';
+import Logo from '../../shared/Logo';
 
 type NavBarProps = {
   setIsHomepage: React.Dispatch<React.SetStateAction<boolean>>;
@@ -11,7 +12,7 @@ const NavBar = ({ setIsHomepage }: NavBarProps) => {
         className="font-highlight font-bold"
         onClick={() => setIsHomepage(true)}
       >
-        KM
+        <Logo className="h-6 rounded-sm" />
       </Button>
       <div>
         <ul className="flex gap-15">

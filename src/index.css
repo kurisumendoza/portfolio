@@ -2,12 +2,12 @@
 
 @layer base {
   :root {
-    --text: 217 95% 92%;
+    --text: 230 80% 94%;
     --text-dark: 10 95% 12%;
-    --background: 217 94% 6%;
-    --primary: 220 95% 75%;
-    --secondary: 269 95% 34%;
-    --accent: 281 95% 52%;
+    --background: 229 85% 3%;
+    --primary: 230 81% 71%;
+    --secondary: 309 81% 31%;
+    --accent: 333 82% 51%;
   }
 
   html {

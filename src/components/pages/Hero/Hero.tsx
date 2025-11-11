@@ -1,4 +1,5 @@
 import { FIRST_NAME, LAST_NAME } from '../../../constants';
+import WindowAccent from '../../shared/WindowAccent';
 import EnterIcon from '../../icons/EnterIcon';
 import Button from '../../shared/Button';
 
@@ -11,8 +12,9 @@ type HeroProps = {
 const Hero = ({ animation, isHomepage, setIsHomepage }: HeroProps) => {
   return (
     <div
-      className={`bg-background flex size-full flex-col justify-center gap-10 ${animation}`}
+      className={`bg-background relative flex size-full flex-col justify-center gap-10 ${animation}`}
     >
+      {!isHomepage && <WindowAccent />}
       <div
         className={`flex flex-col gap-2.5 ${isHomepage ? 'px-50' : 'scale-75'}`}
       >

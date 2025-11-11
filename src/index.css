@@ -11,7 +11,7 @@
   }
 
   html {
-    @apply font-main text-text bg-neutral-400;
+    @apply font-main text-text bg-gray-600 bg-[repeating-linear-gradient(90deg,#999_0_1px,transparent_1px_40px),repeating-linear-gradient(0deg,#999_0_1px,transparent_1px_40px)];
   }
 
   button,

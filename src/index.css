@@ -20,7 +20,7 @@
   }
 
   h1 {
-    @apply font-highlight text-3xl;
+    @apply font-highlight text-3xl font-semibold;
   }
 }
 

@@ -3,6 +3,7 @@ import { ABOUT, type AboutType } from '../../../constants';
 import WindowAccent from '../../shared/WindowAccent';
 import AboutOverview from '../AboutOverview';
 import AboutSkills from '../AboutSkills';
+import AboutExperience from '../AboutExperience';
 
 const About = ({ animation }: { animation: string }) => {
   const { OVERVIEW, SKILLS, EXPERIENCE, INTERESTS } = ABOUT;
@@ -54,6 +55,7 @@ const About = ({ animation }: { animation: string }) => {
         <h1 className="mb-10">{activeSection}</h1>
         {activeSection === OVERVIEW && <AboutOverview />}
         {activeSection === SKILLS && <AboutSkills />}
+        {activeSection === EXPERIENCE && <AboutExperience />}
       </div>
     </div>
   );

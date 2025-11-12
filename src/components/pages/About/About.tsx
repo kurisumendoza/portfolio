@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ABOUT, type AboutType } from '../../../constants';
 import WindowAccent from '../../shared/WindowAccent';
 import AboutOverview from '../AboutOverview';
+import AboutSkills from '../AboutSkills';
 
 const About = ({ animation }: { animation: string }) => {
   const { OVERVIEW, SKILLS, EXPERIENCE, INTERESTS } = ABOUT;
@@ -52,6 +53,7 @@ const About = ({ animation }: { animation: string }) => {
       <div className="h-full w-3/4 p-3">
         <h1 className="mb-10">{activeSection}</h1>
         {activeSection === OVERVIEW && <AboutOverview />}
+        {activeSection === SKILLS && <AboutSkills />}
       </div>
     </div>
   );

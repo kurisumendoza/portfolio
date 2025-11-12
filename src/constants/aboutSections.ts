@@ -4,3 +4,5 @@ export const ABOUT = {
   EXPERIENCE: 'Experience',
   INTERESTS: 'Interests',
 } as const;
+
+export type AboutType = (typeof ABOUT)[keyof typeof ABOUT];

@@ -1,4 +1,4 @@
-import { FIRST_NAME, LAST_NAME } from '../../../constants';
+import { ABOUT, FIRST_NAME, LAST_NAME } from '../../../constants';
 import myPhoto from '../../../assets/pictures/my-photo.jpeg';
 import WindowAccent from '../../shared/WindowAccent';
 
@@ -7,6 +7,8 @@ type AboutProps = {
 };
 
 const About = ({ animation }: AboutProps) => {
+  const { OVERVIEW, SKILLS, EXPERIENCE, INTERESTS } = ABOUT;
+
   return (
     <div
       className={`bg-background flex size-full justify-center gap-10 rounded-2xl p-3 ${animation}`}
@@ -14,10 +16,10 @@ const About = ({ animation }: AboutProps) => {
       <WindowAccent />
       <div className="h-full w-1/4 rounded-2xl border border-gray-400 bg-transparent px-6 py-15">
         <ul className="flex flex-col gap-5 text-xl">
-          <li>Overview</li>
-          <li>Skills</li>
-          <li>Experience</li>
-          <li>Personal</li>
+          <li>{OVERVIEW}</li>
+          <li>{SKILLS}</li>
+          <li>{EXPERIENCE}</li>
+          <li>{INTERESTS}</li>
         </ul>
       </div>
       <div className="h-full w-3/4 p-3">

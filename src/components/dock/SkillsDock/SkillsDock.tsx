@@ -8,7 +8,7 @@ const SkillsDock = () => {
     <div
       className={`mx-auto mb-2 flex items-center justify-center gap-3 rounded-xl bg-neutral-500 p-4 transition-[padding] duration-300 ease-out ${hoveredIndex !== null && 'px-10'}`}
     >
-      {techLogos.map((logo, index) => {
+      {techLogos.map(({ src }, index) => {
         let scale = 1;
         let translateX = 0;
 
@@ -37,7 +37,7 @@ const SkillsDock = () => {
           >
             <div className="absolute -inset-2.5 z-0" />
             <img
-              src={logo}
+              src={src}
               alt=""
               className="pointer-events-none h-10 select-none"
             />

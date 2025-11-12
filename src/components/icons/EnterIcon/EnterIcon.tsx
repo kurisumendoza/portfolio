@@ -1,8 +1,4 @@
-type EnterIconProps = {
-  className: string;
-};
-
-const EnterIcon = ({ className }: EnterIconProps) => {
+const EnterIcon = ({ className }: { className: string }) => {
   return (
     <svg
       role="img"

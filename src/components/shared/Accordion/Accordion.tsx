@@ -1,23 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '../Button';
 import ArrowIcon from '../../icons/ArrowIcon/ArrowIcon';
 
-type AccordionProps = {
-  label: React.ReactNode;
+type ContentType = {
   content: React.ReactNode;
-  labelClassName: string;
-  contentClassName: string;
-  isOpen?: boolean;
+  className: string;
+};
+
+type AccordionProps = {
+  label: ContentType;
+  body: ContentType;
+  id: string;
+  activeElement: string;
+  setActiveElement: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const Accordion = ({
   label,
-  content,
-  labelClassName,
-  contentClassName,
-  isOpen = false,
+  body,
+  id,
+  activeElement,
+  setActiveElement,
 }: AccordionProps) => {
-  const [isActive, setIsActive] = useState(isOpen);
+  const [isActive, setIsActive] = useState(false);
 
   const labelVariant = {
     active: 'rounded-t-lg',
@@ -29,22 +34,31 @@ const Accordion = ({
     inactive: 'h-0 overflow-hidden',
   };
 
+  const handleClick = () => {
+    setActiveElement(id);
+    setIsActive(!isActive);
+  };
+
+  useEffect(() => {
+    if (id !== activeElement) setIsActive(false);
+  }, [id, activeElement]);
+
   return (
     <>
       <div
-        className={`flex items-center justify-between transition-all duration-100 ${labelClassName} ${isActive ? labelVariant.active : labelVariant.inactive}`}
+        className={`flex items-center justify-between transition-all duration-100 ${label.className} ${isActive ? labelVariant.active : labelVariant.inactive}`}
       >
-        {label || 'Placeholder'}
-        <Button className="" onClick={() => setIsActive(!isActive)}>
+        {label.content}
+        <Button className="" onClick={handleClick}>
           <ArrowIcon
-            className={`h-12 transition-transform duration-300 ${isActive ? 'rotate-180' : 'rotate-360'}`}
+            className={`h-10 transition-transform duration-200 ${isActive ? 'rotate-180' : 'rotate-360'}`}
           />
         </Button>
       </div>
       <div
-        className={`transition-all duration-300 ${contentClassName} ${isActive ? contentVariant.active : contentVariant.inactive}`}
+        className={`transition-all duration-300 ${body.className} ${isActive ? contentVariant.active : contentVariant.inactive}`}
       >
-        {content}
+        {body.content}
       </div>
     </>
   );

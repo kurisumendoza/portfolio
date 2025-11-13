@@ -52,7 +52,7 @@ const AboutExperience = () => {
   ];
 
   return (
-    <div className="h-160 overflow-y-scroll pr-10">
+    <div className="scrollbar-thumb-rounded-full scrollbar scrollbar-thumb-accent scrollbar-track-transparent h-160 overflow-y-scroll pr-10">
       {workDetails.map(({ name, short, duration, description, src }, index) => {
         return (
           <Accordion

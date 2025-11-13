@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@plugin 'tailwind-scrollbar';
+
 @layer base {
   :root {
     --text: 230 80% 94%;

@@ -1,13 +1,33 @@
 import Button from '../../shared/Button';
+import { interestsLogos } from '../../../assets/interests-logos';
 
 const AboutInterests = () => {
-  const items = Array.from({ length: 9 }, (_, i) => i);
+  const [
+    videoGamesLogo,
+    animeLogo,
+    moviesLogo,
+    tvSeriesLogo,
+    musicLogo,
+    collectiblesLogo,
+    foodLogo,
+    catsLogo,
+  ] = interestsLogos;
 
   const interests = [
-    { title: 'Video Games', color: 'bg-sky-500', content: '' },
-    { title: 'Anime', color: 'bg-red-500', content: '' },
-    { title: 'Movies', color: 'bg-yellow-500', content: '' },
-    { title: 'TV Series', color: 'bg-green-500', content: '' },
+    {
+      title: 'Video Games',
+      color: 'bg-sky-500',
+      src: videoGamesLogo,
+      content: '',
+    },
+    { title: 'Anime', color: 'bg-red-500', src: animeLogo, content: '' },
+    { title: 'Movies', color: 'bg-yellow-500', src: moviesLogo, content: '' },
+    {
+      title: 'TV Series',
+      color: 'bg-green-500',
+      src: tvSeriesLogo,
+      content: '',
+    },
     {
       title: 'Stuff I Like',
       description:
@@ -15,31 +35,39 @@ const AboutInterests = () => {
       color: 'bg-gray-700',
       content: '',
     },
-    { title: 'Music', color: 'bg-blue-500', content: '' },
-    { title: 'Collectibles', color: 'bg-orange-500', content: '' },
-    { title: 'Food', color: 'bg-pink-500', content: '' },
-    { title: 'Cats', color: 'bg-teal-600', content: '' },
+    { title: 'Music', color: 'bg-blue-500', src: musicLogo, content: '' },
+    {
+      title: 'Collectibles',
+      color: 'bg-orange-500',
+      src: collectiblesLogo,
+      content: '',
+    },
+    { title: 'Food', color: 'bg-pink-500', src: foodLogo, content: '' },
+    { title: 'Cats', color: 'bg-teal-600', src: catsLogo, content: '' },
   ];
 
   const variant = {
-    base: 'pl-7 pb-5 text-2xl rounded-xl font-medium flex',
-    clickable: 'transition-transform duration-300 hover:scale-103 items-end',
-    unclickable:
-      'pointer-events-none flex-col justify-between pt-5 pr-7 items-start',
+    base: 'px-7 py-5 text-2xl flex-col justify-between rounded-xl font-medium flex items-start font-semibold',
+    clickable:
+      'transition-all duration-300 hover:scale-103 brightness-90 hover:brightness-110',
+    unclickable: 'pointer-events-none',
   };
 
   return (
     <div className={`grid h-6/7 grid-cols-3 grid-rows-3 gap-3 pr-10`}>
-      {items.map((i) => (
+      {interests.map(({ title, color, description, src, content }, i) => (
         <Button
           key={i}
           onClick={() => {}}
-          className={`${variant.base} ${interests[i].color} ${!interests[i].description ? variant.clickable : variant.unclickable}`}
+          className={`${variant.base} ${color} ${!description ? variant.clickable : variant.unclickable}`}
         >
-          {interests[i]?.description && (
-            <p className="text-left text-lg">{interests[i].description}</p>
+          {description && <p className="text-left text-xl">{description}</p>}
+          {src && (
+            <div className="flex size-full justify-center p-8">
+              <img src={src} alt="" />
+            </div>
           )}
-          <p>{interests[i].title}</p>
+          <p>{title}</p>
         </Button>
       ))}
     </div>

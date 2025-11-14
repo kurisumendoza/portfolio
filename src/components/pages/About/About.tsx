@@ -4,6 +4,7 @@ import WindowAccent from '../../shared/WindowAccent';
 import AboutOverview from '../AboutOverview';
 import AboutSkills from '../AboutSkills';
 import AboutExperience from '../AboutExperience';
+import AboutInterests from '../AboutInterests';
 
 const About = ({ animation }: { animation: string }) => {
   const { OVERVIEW, SKILLS, EXPERIENCE, INTERESTS } = ABOUT;
@@ -56,6 +57,7 @@ const About = ({ animation }: { animation: string }) => {
         {activeSection === OVERVIEW && <AboutOverview />}
         {activeSection === SKILLS && <AboutSkills />}
         {activeSection === EXPERIENCE && <AboutExperience />}
+        {activeSection === INTERESTS && <AboutInterests />}
       </div>
     </div>
   );

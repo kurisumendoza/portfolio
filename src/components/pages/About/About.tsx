@@ -52,8 +52,8 @@ const About = ({ animation }: { animation: string }) => {
           </li>
         </ul>
       </div>
-      <div className="h-full w-3/4 p-3">
-        <h1 className="mb-10">{activeSection}</h1>
+      <div className="h-full w-3/4 px-3 pt-3">
+        <h1 className="mb-5">{activeSection}</h1>
         {activeSection === OVERVIEW && <AboutOverview />}
         {activeSection === SKILLS && <AboutSkills />}
         {activeSection === EXPERIENCE && <AboutExperience />}

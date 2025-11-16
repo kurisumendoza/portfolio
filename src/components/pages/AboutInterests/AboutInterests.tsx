@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { interestsLogos } from '../../../assets/interests-logos';
+import { coverImages } from '../../../assets/pictures/interests/cover-images';
 import Button from '../../shared/Button';
 import Modal from '../../shared/Modal';
 import VideoGamesModal from './content/VideoGamesModal';
@@ -12,7 +12,6 @@ import OtherModal from './content/OtherModal';
 type InterestType = {
   title?: string;
   subtitle?: string;
-  color: string;
   src?: string;
   content?: React.ReactNode;
 };
@@ -21,56 +20,44 @@ const AboutInterests = () => {
   const [active, setActive] = useState<InterestType | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const [
-    videoGamesLogo,
-    animeLogo,
-    moviesLogo,
-    tvSeriesLogo,
-    musicLogo,
-    catsLogo,
-  ] = interestsLogos;
+  const [videoGamesImg, animeImg, moviesImg, tvShowsImgs, musicImg, otherImg] =
+    coverImages;
 
   const interests = [
     {
       title: 'Video Games',
       subtitle: 'My Gaming Hall of Fame',
-      color: 'bg-sky-500',
-      src: videoGamesLogo,
+      src: videoGamesImg,
       content: <VideoGamesModal />,
     },
     {
       title: 'Anime',
       subtitle: 'Best anime I have watched',
-      color: 'bg-red-500',
-      src: animeLogo,
+      src: animeImg,
       content: <AnimeModal />,
     },
     {
       title: 'Movies',
       subtitle: 'Films that left a strong impression',
-      color: 'bg-yellow-500',
-      src: moviesLogo,
+      src: moviesImg,
       content: <MoviesModal />,
     },
     {
       title: 'TV Series',
       subtitle: 'Shows I loved watching',
-      color: 'bg-green-500',
-      src: tvSeriesLogo,
+      src: tvShowsImgs,
       content: <TVShowsModal />,
     },
     {
       title: 'Music',
       subtitle: 'Any songs from these artists',
-      color: 'bg-blue-500',
-      src: musicLogo,
+      src: musicImg,
       content: <MusicModal />,
     },
     {
       title: 'Other',
       subtitle: 'More stuff I like',
-      color: 'bg-teal-500',
-      src: catsLogo,
+      src: otherImg,
       content: <OtherModal />,
     },
   ];
@@ -92,20 +79,21 @@ const AboutInterests = () => {
         className={`relative mr-10 grid h-4/5 grid-cols-2 grid-rows-3 gap-5 select-none`}
       >
         {interests.map((interest, i) => {
-          const { title, color, src } = interest;
+          const { title, src } = interest;
 
           return (
             <Button
               key={i}
               onClick={() => handleClick(interest)}
-              className={`${cardStyle} ${color} `}
+              className={`${cardStyle}`}
+              style={{
+                backgroundImage: `url(${src})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
             >
-              {src && (
-                <div className="flex size-full justify-center p-8">
-                  <img src={src} alt="" />
-                </div>
-              )}
-              {title && <p>{title}</p>}
+              {title && <p className="absolute bottom-6">{title}</p>}
             </Button>
           );
         })}

@@ -9,7 +9,12 @@ const ImageGrid = ({ children, imagesArray }: ImageGridProps) => {
       {imagesArray.map((src, i) => {
         return (
           <div key={i} className="flex h-80 items-center justify-center">
-            <img src={src} alt="" className="size-full object-cover" />
+            <img
+              src={src}
+              alt=""
+              className="size-full object-cover"
+              draggable={false}
+            />
           </div>
         );
       })}

@@ -23,7 +23,7 @@ const Modal = ({
       className={`${isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'} absolute size-full transition-all duration-300`}
     >
       <div
-        className={`absolute p-10 transition-all duration-300 ${
+        className={`absolute p-10 pt-18 transition-all duration-300 ${
           isOpen ? 'scale-100' : 'scale-80'
         } ${className}`}
       >

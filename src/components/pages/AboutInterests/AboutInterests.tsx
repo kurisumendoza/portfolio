@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { interestsLogos } from '../../../assets/interests-logos';
 import Button from '../../shared/Button';
 import Modal from '../../shared/Modal';
+import VideoGamesModal from './content/VideoGamesModal';
 
 type InterestType = {
   title?: string;
@@ -30,7 +31,7 @@ const AboutInterests = () => {
       subtitle: 'My Gaming Hall of Fame',
       color: 'bg-sky-500',
       src: videoGamesLogo,
-      content: '',
+      content: <VideoGamesModal />,
     },
     {
       title: 'Anime',
@@ -70,7 +71,7 @@ const AboutInterests = () => {
   ];
 
   const cardStyle =
-    'px-7 py-5 text-2xl flex-col justify-between rounded-xl font-medium flex items-start font-semibold transition-all duration-300 hover:scale-105 brightness-90 hover:brightness-110';
+    'flex flex-col items-start justify-between rounded-xl px-7 py-5 text-2xl font-semibold brightness-90 transition-all duration-300 hover:scale-105 hover:brightness-110';
 
   const handleClick = (interest: InterestType) => {
     setActive(interest);

@@ -5,6 +5,7 @@ import Modal from '../../shared/Modal';
 import VideoGamesModal from './content/VideoGamesModal';
 import AnimeModal from './content/AnimeModal';
 import MoviesModal from './content/MoviesModal';
+import TVShowsModal from './content/TVShowsModal';
 
 type InterestType = {
   title?: string;
@@ -54,7 +55,7 @@ const AboutInterests = () => {
       subtitle: 'Shows I loved watching',
       color: 'bg-green-500',
       src: tvSeriesLogo,
-      content: '',
+      content: <TVShowsModal />,
     },
     {
       title: 'Music',

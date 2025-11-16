@@ -6,6 +6,7 @@ import VideoGamesModal from './content/VideoGamesModal';
 import AnimeModal from './content/AnimeModal';
 import MoviesModal from './content/MoviesModal';
 import TVShowsModal from './content/TVShowsModal';
+import MusicModal from './content/MusicModal';
 
 type InterestType = {
   title?: string;
@@ -59,10 +60,10 @@ const AboutInterests = () => {
     },
     {
       title: 'Music',
-      subtitle: 'Music that always hits right',
+      subtitle: 'Any songs from these artists',
       color: 'bg-blue-500',
       src: musicLogo,
-      content: '',
+      content: <MusicModal />,
     },
     {
       title: 'Other',

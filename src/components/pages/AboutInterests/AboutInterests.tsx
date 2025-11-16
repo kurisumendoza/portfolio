@@ -3,6 +3,7 @@ import { interestsLogos } from '../../../assets/interests-logos';
 import Button from '../../shared/Button';
 import Modal from '../../shared/Modal';
 import VideoGamesModal from './content/VideoGamesModal';
+import AnimeModal from './content/AnimeModal';
 
 type InterestType = {
   title?: string;
@@ -38,7 +39,7 @@ const AboutInterests = () => {
       subtitle: 'Best anime I have watched',
       color: 'bg-red-500',
       src: animeLogo,
-      content: '',
+      content: <AnimeModal />,
     },
     {
       title: 'Movies',

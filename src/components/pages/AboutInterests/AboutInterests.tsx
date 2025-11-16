@@ -7,6 +7,7 @@ import AnimeModal from './content/AnimeModal';
 import MoviesModal from './content/MoviesModal';
 import TVShowsModal from './content/TVShowsModal';
 import MusicModal from './content/MusicModal';
+import OtherModal from './content/OtherModal';
 
 type InterestType = {
   title?: string;
@@ -70,7 +71,7 @@ const AboutInterests = () => {
       subtitle: 'More stuff I like',
       color: 'bg-teal-500',
       src: catsLogo,
-      content: '',
+      content: <OtherModal />,
     },
   ];
 

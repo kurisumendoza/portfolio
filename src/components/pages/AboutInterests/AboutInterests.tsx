@@ -4,6 +4,7 @@ import Button from '../../shared/Button';
 import Modal from '../../shared/Modal';
 import VideoGamesModal from './content/VideoGamesModal';
 import AnimeModal from './content/AnimeModal';
+import MoviesModal from './content/MoviesModal';
 
 type InterestType = {
   title?: string;
@@ -46,7 +47,7 @@ const AboutInterests = () => {
       subtitle: 'Films that left a strong impression',
       color: 'bg-yellow-500',
       src: moviesLogo,
-      content: '',
+      content: <MoviesModal />,
     },
     {
       title: 'TV Series',

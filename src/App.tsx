@@ -13,6 +13,7 @@ import SkillsDock from './components/dock/SkillsDock';
 import './App.css';
 import SidePages from './components/pages/SidePages';
 import About from './components/pages/About';
+import Projects from './components/pages/Projects';
 
 function App() {
   const defaultSide = [PAGE.ABOUT, PAGE.PROJECTS, PAGE.CONTACT];
@@ -73,6 +74,10 @@ function App() {
 
                 {activePage === PAGE.ABOUT && (
                   <About animation={SIDE_ANIMATION.EXPAND} />
+                )}
+
+                {activePage === PAGE.PROJECTS && (
+                  <Projects animation={SIDE_ANIMATION.EXPAND} />
                 )}
               </ActivePage>
             </div>

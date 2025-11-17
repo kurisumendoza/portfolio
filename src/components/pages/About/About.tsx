@@ -5,53 +5,23 @@ import AboutOverview from '../AboutOverview';
 import AboutSkills from '../AboutSkills';
 import AboutExperience from '../AboutExperience';
 import AboutInterests from '../AboutInterests';
+import SideMenu from '../../shared/SideMenu';
 
 const About = ({ animation }: { animation: string }) => {
   const { OVERVIEW, SKILLS, EXPERIENCE, INTERESTS } = ABOUT;
 
   const [activeSection, setActiveSection] = useState<AboutType>(OVERVIEW);
 
-  const handleClick = (section: AboutType) => {
-    setActiveSection(section);
-  };
-
-  const sectionStyle =
-    'hover:text-text-dark rounded-sm px-5 py-1.5 transition-colors duration-300 hover:bg-gray-300';
-  const activeStyle = 'bg-accent';
-
   return (
     <div
       className={`bg-background flex size-full justify-center gap-10 rounded-2xl p-3 ${animation}`}
     >
       <WindowAccent />
-      <div className="h-full w-1/4 rounded-2xl border border-gray-400 bg-transparent py-15">
-        <ul className="flex flex-col gap-1 px-1.5 text-xl">
-          <li
-            className={`${sectionStyle} ${activeSection === OVERVIEW && activeStyle}`}
-            onClick={() => handleClick(OVERVIEW)}
-          >
-            {OVERVIEW}
-          </li>
-          <li
-            className={`${sectionStyle} ${activeSection === SKILLS && activeStyle}`}
-            onClick={() => handleClick(SKILLS)}
-          >
-            {SKILLS}
-          </li>
-          <li
-            className={`${sectionStyle} ${activeSection === EXPERIENCE && activeStyle}`}
-            onClick={() => handleClick(EXPERIENCE)}
-          >
-            {EXPERIENCE}
-          </li>
-          <li
-            className={`${sectionStyle} ${activeSection === INTERESTS && activeStyle}`}
-            onClick={() => handleClick(INTERESTS)}
-          >
-            {INTERESTS}
-          </li>
-        </ul>
-      </div>
+      <SideMenu
+        sections={[OVERVIEW, SKILLS, EXPERIENCE, INTERESTS]}
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
+      />
       <div className="h-full w-3/4 px-3 pt-3">
         <h1 className="mb-5">{activeSection}</h1>
         {activeSection === OVERVIEW && <AboutOverview />}

@@ -18,7 +18,7 @@ const About = ({ animation }: { animation: string }) => {
     >
       <WindowAccent />
       <SideMenu
-        sections={[OVERVIEW, SKILLS, EXPERIENCE, INTERESTS]}
+        sections={Object.values(ABOUT)}
         activeSection={activeSection}
         setActiveSection={setActiveSection}
       />

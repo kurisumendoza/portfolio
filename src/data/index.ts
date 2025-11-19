@@ -1,1 +1,1 @@
-export { default as projects } from './projects';
+export * from './projects';

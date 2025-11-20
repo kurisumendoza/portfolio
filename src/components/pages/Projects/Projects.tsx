@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { PROJECT, type ProjectType } from '../../../constants';
-import { projects } from '../../../data/projects';
+import { earlyProjects, projects } from '../../../data/projects';
 import WindowAccent from '../../shared/WindowAccent';
 import SideMenu from '../../shared/SideMenu';
 import ProjectSection from '../ProjectSection';
+import ProjectsOther from '../ProjectsOther';
 
 const Projects = ({ animation }: { animation: string }) => {
   const { SHORT_TASK, ALGORITHMS, OTHER } = PROJECT;
@@ -22,7 +23,8 @@ const Projects = ({ animation }: { animation: string }) => {
       />
       <div className="h-full w-3/4 px-3 pt-3">
         <h1 className="mb-5">{activeSection}</h1>
-        {(activeSection !== ALGORITHMS || activeSection !== OTHER) && (
+        {activeSection === OTHER && <ProjectsOther projects={earlyProjects} />}
+        {activeSection !== ALGORITHMS && activeSection !== OTHER && (
           <ProjectSection
             project={projects.find((proj) => proj.name === activeSection)}
           />

@@ -12,6 +12,6 @@ export type ProjectEntry = {
 
 export type ProjectGroup = {
   name: string;
-  description: string[];
+  description: string;
   projects: ProjectEntry[];
 };

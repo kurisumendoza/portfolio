@@ -17,7 +17,8 @@
   }
 
   button,
-  li {
+  li,
+  a {
     @apply cursor-pointer;
   }
 

@@ -1,5 +1,5 @@
-import { techLogos } from '../../../assets/tech-logos';
 import type { ProjectEntry } from '../../../types';
+import TechList from '../../shared/TechList';
 
 type ProjectSectionProps = {
   project: ProjectEntry | undefined;
@@ -24,22 +24,7 @@ const ProjectSection = ({ project }: ProjectSectionProps) => {
         />
       </div>
       <div className="flex items-center justify-between gap-10 pr-10">
-        <div className="bg-primary flex items-center gap-5 rounded-md p-3 pl-5 font-bold">
-          <p>Tech</p>
-          <div className="flex gap-3 border-l-2 border-gray-300 pl-3">
-            {project?.tech.map((tech) => {
-              return (
-                <div key={tech} className="">
-                  <img
-                    src={techLogos.find((logo) => logo.name === tech)?.src}
-                    alt=""
-                    className="h-10 rounded-md bg-white p-1"
-                  />
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <TechList tech={project?.tech} />
         <div className="justify-left flex w-1/2 gap-5 py-5">
           <a
             href={project?.codeURL}

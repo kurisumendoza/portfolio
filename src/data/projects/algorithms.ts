@@ -1,18 +1,31 @@
 import { PROJECT } from '../../constants';
-import type { ProjectEntry } from '../../types';
+import type { ProjectAlgorithms } from '../../types';
 
-const algorithms: ProjectEntry = {
+const algorithms: ProjectAlgorithms = {
   name: PROJECT.ALGORITHMS,
-  description: [
+  description:
     "A collection of algorithm-focused projects from The Odin Project, including Knight's Travails, Binary Search Trees, Hashmaps, Linked Lists, and several recursion exercises. They don't have live demos since they're purely code-based, but they show my ability to understand core data structures and implement algorithms.",
-  ],
-  tech: ['JavaScript'],
-  codeURLs: [
-    'https://github.com/kurisumendoza/knights-travails',
-    'https://github.com/kurisumendoza/binary-search-trees',
-    'https://github.com/kurisumendoza/hashmap',
-    'https://github.com/kurisumendoza/linked-lists',
-    'https://github.com/kurisumendoza/recursion',
+  projects: [
+    {
+      name: 'Knights Travails',
+      url: 'https://github.com/kurisumendoza/knights-travails',
+    },
+    {
+      name: 'Binary Search Trees',
+      url: 'https://github.com/kurisumendoza/binary-search-trees',
+    },
+    {
+      name: 'Hashmap',
+      url: 'https://github.com/kurisumendoza/hashmap',
+    },
+    {
+      name: 'Linked Lists',
+      url: 'https://github.com/kurisumendoza/linked-lists',
+    },
+    {
+      name: 'Recursion',
+      url: 'https://github.com/kurisumendoza/recursion',
+    },
   ],
 };
 

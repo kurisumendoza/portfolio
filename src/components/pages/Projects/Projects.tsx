@@ -5,6 +5,8 @@ import WindowAccent from '../../shared/WindowAccent';
 import SideMenu from '../../shared/SideMenu';
 import ProjectSection from '../ProjectSection';
 import ProjectsOther from '../ProjectsOther';
+import ProjectsAlgorithms from '../ProjectsAlgorithms';
+import algorithms from '../../../data/projects/algorithms';
 
 const Projects = ({ animation }: { animation: string }) => {
   const { SHORT_TASK, ALGORITHMS, OTHER } = PROJECT;
@@ -23,6 +25,9 @@ const Projects = ({ animation }: { animation: string }) => {
       />
       <div className="h-full w-3/4 px-3 pt-3">
         <h1 className="mb-5">{activeSection}</h1>
+        {activeSection === ALGORITHMS && (
+          <ProjectsAlgorithms projects={algorithms} />
+        )}
         {activeSection === OTHER && <ProjectsOther projects={earlyProjects} />}
         {activeSection !== ALGORITHMS && activeSection !== OTHER && (
           <ProjectSection

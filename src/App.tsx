@@ -50,7 +50,7 @@ function App() {
       {!isHomepage && (
         <Overview>
           <NavBar setIsHomepage={setIsHomepage} />
-          <main className="flex h-4/5 gap-10 px-10">
+          <main className="flex flex-1 gap-10 px-10">
             <SidePages
               activePage={activePage}
               inactivePages={inactivePages}
@@ -58,7 +58,7 @@ function App() {
               setInactivePages={setInactivePages}
               setFromSidePage={setFromSidePage}
             />
-            <div className="col-start-2 row-span-3 row-start-1 w-full">
+            <div className="size-full">
               <ActivePage>
                 {activePage === PAGE.HOME && (
                   <Hero

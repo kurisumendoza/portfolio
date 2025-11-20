@@ -1,4 +1,5 @@
 import type { ProjectEntry } from '../../../types';
+import LinkButton from '../../shared/LinkButton';
 import TechList from '../../shared/TechList';
 
 type ProjectSectionProps = {
@@ -26,22 +27,16 @@ const ProjectSection = ({ project }: ProjectSectionProps) => {
       <div className="flex items-center justify-between gap-10 pr-10">
         <TechList tech={project?.tech} />
         <div className="justify-left flex w-1/2 gap-5 py-5">
-          <a
-            href={project?.codeURL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <LinkButton
+            label="View Code"
+            url={project?.codeURL}
             className={buttonStyle}
-          >
-            View Code
-          </a>
-          <a
-            href={project?.liveURL}
-            target="_blank"
-            rel="noopener noreferrer"
+          />
+          <LinkButton
+            label="Live Preview"
+            url={project?.liveURL}
             className={buttonStyle}
-          >
-            Live Preview
-          </a>
+          />
         </div>
       </div>
       <div className="flex flex-col gap-2 pr-10">
